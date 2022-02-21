@@ -1,23 +1,34 @@
-const taskInput = document.querySelector(".toDo__input"); // new-task
-const addButton = document.querySelector(".toDo__button"); //add button
+let taskInput = document.querySelector(".toDo__input"); // new-task
+const form = document.querySelector("form"); //add button
 const list = document.querySelector(".todo__list");
+const btns = document.querySelector(".item__button");
+let listItem = document.querySelector(".listItem");
 
 //New Task List item
 
-addButton.addEventListener("click", (event) => {
+let tasks = [];
+
+form.addEventListener("submit", (event) => {
+  tasks.unshift(taskInput.value);
+  console.log(tasks);
   event.preventDefault();
-  let input = taskInput.value;
-  console.log(input);
+
   // create List Item
 
-  list.appendChild("<li>${input}</li>");
+  list.innerHTML = "";
+  tasks.forEach(function (item) {
+    list.insertAdjacentHTML(
+      "beforeend",
+      `<div><li class=list__Item>${item}</li><div>`
+    );
+    taskInput.value = "";
+  });
 
-  //   Each element needs appending
-  listItem.appendChild(checkBox);
-  listItem.appendChild(label);
-  listItem.appendChild(editInput);
-  listItem.appendChild(editButton);
-  listItem.appendChild(deleteButton);
-
-  return listItem;
+  if (tasks.length > 0) {
+    let list_item = document.querySelector("list__Item");
+    list_item.appendChild(`${btns}`);
+    btns.classList.add("listed__item");
+  } else {
+    btns.classList.remove("listed__item");
+  }
 });

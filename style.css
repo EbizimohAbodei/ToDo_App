@@ -45,13 +45,17 @@ form button {
   padding: 0.5rem;
   font-size: 2rem;
   border: none;
-  background: white;
+  background: hsl(0, 29%, 95%);
 }
 
-.list__container {
+.list__container,
+.completed__tasks {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #20b0db;
+  width: 100vw;
+  height: auto;
 }
 
 ul {
@@ -80,20 +84,40 @@ ul {
   list-style: none;
 }
 
+.todo__list li {
+  background-color: hsl(0, 29%, 95%);
+  color: rgb(58, 49, 49);
+  height: 3rem;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin: 0.3rem 0rem;
+  border-radius: 0.1rem;
+}
+
 .completed {
   text-decoration: line-through;
   opacity: 0.5;
 }
 
-.trash__button,
-.edit__button,
-.completed__button {
+#trash__button,
+#edit__button,
+#completed__button {
+  display: none;
   background: #ff6f47;
   color: white;
   border: none;
   padding: 1rem;
   cursor: pointer;
   font-size: 1rem;
+}
+
+div h2 {
+  text-align: center;
+  margin: 0.5rem;
+}
+
+.listed__item {
+  display: block;
 }
 
 .completed__button {
