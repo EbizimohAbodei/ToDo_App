@@ -68,23 +68,8 @@ ul {
   padding-inline-start: 40px;
 }
 
-.todo {
-  margin: 0.5rem;
-  background: white;
-  color: black;
-  font-size: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.5s ease;
-}
-
-.todo__list {
-  min-width: 30%;
-  list-style: none;
-}
-
 .todo__list li {
+  display: inline-block;
   background-color: hsl(0, 29%, 95%);
   color: rgb(58, 49, 49);
   height: 3rem;
@@ -102,13 +87,14 @@ ul {
 #trash__button,
 #edit__button,
 #completed__button {
-  display: none;
   background: #ff6f47;
   color: white;
   border: none;
   padding: 1rem;
   cursor: pointer;
   font-size: 1rem;
+  border-radius: 0.25rem;
+  margin: 0rem;
 }
 
 div h2 {
@@ -116,14 +102,10 @@ div h2 {
   margin: 0.5rem;
 }
 
-.listed__item {
-  display: block;
-}
-
-.completed__button {
+#completed__button {
   background-color: green;
 }
 
-.edit__button {
+#edit__button {
   background-color: gray;
 }

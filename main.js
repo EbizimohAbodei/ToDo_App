@@ -19,7 +19,16 @@ form.addEventListener("submit", (event) => {
   tasks.forEach(function (item) {
     list.insertAdjacentHTML(
       "beforeend",
-      `<div><li class=list__Item>${item}</li><div>`
+      `<div><li class=list__Item>${item}</li>
+        <button class="item__button" id="completed__button"><i class="fas fa-check"></i>
+        </button>
+        <button class="item__button" id="edit__button">
+        <i class="uil uil-pen"></i>
+        </button>
+        <button class="item__button" id="trash__button">
+        <i class="fas fa-trash"></i>
+        </button>
+      <div>`
     );
     taskInput.value = "";
   });
