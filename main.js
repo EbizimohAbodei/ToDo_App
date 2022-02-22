@@ -3,6 +3,8 @@ const form = document.querySelector("form"); //add button
 const list = document.querySelector(".todo__list");
 const btns = document.querySelector(".item__button");
 let listItem = document.querySelector(".listItem");
+let completeButton = document.querySelector(".completed__button");
+let deleteButton = document.querySelector("#trash__button");
 
 //New Task List item
 
@@ -14,30 +16,29 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   // create List Item
-
-  list.innerHTML = "";
-  tasks.forEach(function (item) {
-    list.insertAdjacentHTML(
-      "beforeend",
-      `<div><li class=list__Item>${item}</li>
-        <button class="item__button" id="completed__button"><i class="fas fa-check"></i>
-        </button>
-        <button class="item__button" id="edit__button">
+  if (tasks.length > 0 && taskInput.value !== "") {
+    list.innerHTML = "";
+    tasks.forEach(function (item) {
+      list.insertAdjacentHTML(
+        "beforeend",
+        `<div><li class=list__Item>${item}</li><button class="item__button" id="completed__button"><i class="fas fa-check"></i>
+        </button><button class="item__button" id="edit__button">
         <i class="uil uil-pen"></i>
-        </button>
-        <button class="item__button" id="trash__button">
+        </button><button class="item__button" id="trash__button">
         <i class="fas fa-trash"></i>
         </button>
       <div>`
-    );
-    taskInput.value = "";
-  });
-
-  if (tasks.length > 0) {
-    let list_item = document.querySelector("list__Item");
-    list_item.appendChild(`${btns}`);
-    btns.classList.add("listed__item");
+      );
+      taskInput.value = "";
+    });
   } else {
-    btns.classList.remove("listed__item");
+    window.alert("Input field cannot be empty");
+    tasks = [];
   }
 });
+
+// completeButton.addEventListener("click", () => {});
+
+// deleteButton.addEventListener("click", (e) => {
+//   console.log(e);
+// });
