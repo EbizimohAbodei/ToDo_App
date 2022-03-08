@@ -61,7 +61,17 @@ window.addEventListener("load", () => {
         task_input.focus();
         save.hidden = false;
         edit.hidden = true;
-        edit.classList.add("show");
+        edit.classList.add("hide");
+      }
+    });
+
+    save.addEventListener("click", () => {
+      classes = edit.classList;
+      if (classes.contains("hide")) {
+        save.hidden = true;
+        edit.hidden = false;
+        edit.classList.remove("hide");
+        task_input.setAttribute("readonly", "readonly");
       }
     });
 
