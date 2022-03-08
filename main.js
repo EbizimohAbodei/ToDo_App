@@ -23,7 +23,7 @@ window.addEventListener("load", () => {
     completedListItem.classList.add("completed");
 
     const task_input = document.createElement("input");
-    task_input.classList.add("list__text");
+    task_input.classList.add("list__text", "listItem__defHov");
     task_input.type = "text";
     task_input.value = text;
     task_input.setAttribute("readonly", "readonly");
@@ -58,10 +58,12 @@ window.addEventListener("load", () => {
       classes = edit.classList;
       if (classes.contains("show")) {
         task_input.removeAttribute("readonly");
+        task_input.classList.add("listItem__edit");
         task_input.focus();
         save.hidden = false;
         edit.hidden = true;
         edit.classList.add("hide");
+        edit.classList.remove("listItem__defHov");
       }
     });
 

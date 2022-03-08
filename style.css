@@ -82,8 +82,12 @@ ul {
   width: 30rem;
 }
 
-.list__text:hover {
+.listItem__defHov:hover {
   cursor: default;
+}
+
+.listItem__edit:hover {
+  cursor: auto;
 }
 
 .list__Item {
