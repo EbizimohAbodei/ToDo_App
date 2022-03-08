@@ -1,52 +1,78 @@
-let taskInput = document.querySelector(".toDo__input"); // new-task
-const form = document.querySelector("form"); //add button
-const list = document.querySelector(".todo__list");
-const btns = document.querySelector(".item__button");
-let listItem = document.querySelector(".listItem");
-let deleteButton = document.querySelector("#trash__button");
-let allBtns = document.querySelectorAll(".item__button");
+window.addEventListener("load", () => {
+  let taskInput = document.querySelector(".toDo__input");
+  const form = document.querySelector("form");
+  const list = document.querySelector(".todo__list");
+  const completedList = document.querySelector(".completed__list");
 
-//New Task List item
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-let tasks = [];
-let addedItems;
+    const text = taskInput.value;
 
-form.addEventListener("submit", (event) => {
-  console.log(tasks);
-  event.preventDefault();
+    if (!text) {
+      window.alert(
+        "Input field cannot be empty \nEnter the description of the task"
+      );
+      return;
+    }
 
-  // create List Item
-  if (taskInput.value !== "") {
-    tasks.unshift(taskInput.value);
-  } else {
-    window.alert(
-      "Input field cannot be empty \nEnter the description of the task"
-    );
-    tasks = [...tasks];
-  }
+    const listItem = document.createElement("li");
+    listItem.classList.add("list__item");
 
-  list.innerHTML = "";
-  tasks.forEach(function (item) {
-    list.insertAdjacentHTML(
-      "beforeend",
-      `<div><li class=list__Item>${item}</li><button class="item__button" id="completed__button"><i class="fas fa-check"></i>
-        </button><button class="item__button" id="edit__button">
-        <i class="uil uil-pen"></i>
-        </button><button class="item__button" id="trash__button">
-        <i class="fas fa-trash"></i>
-        </button>
-      <div>`
-    );
-    addedItems = list;
-    console.log(addedItems);
+    const completedListItem = document.createElement("li");
+    completedListItem.classList.add("completed");
+
+    const task_input = document.createElement("input");
+    task_input.classList.add("list__text");
+    task_input.type = "text";
+    task_input.value = text;
+    task_input.setAttribute("readonly", "readonly");
+
+    const edit = document.createElement("button");
+    edit.classList.add("edit__button", "show");
+    edit.innerHTML = '<i class="uil uil-pen"></i>';
+
+    const remove = document.createElement("button");
+    remove.classList.add("trash__button");
+    remove.innerHTML = '<i class="fas fa-trash"></i>';
+
+    const completed = document.createElement("button");
+    completed.classList.add("completed__button");
+    completed.innerHTML = '<i class="fas fa-check"></i>';
+
+    const save = document.createElement("button");
+    save.classList.add("save__show");
+    save.innerHTML = '<i class="uil uil-save"></i>';
+    save.hidden = true;
+
+    listItem.appendChild(task_input);
+    listItem.appendChild(remove);
+    listItem.appendChild(completed);
+    listItem.appendChild(edit);
+    listItem.appendChild(save);
+    list.appendChild(listItem);
+
     taskInput.value = "";
+
+    edit.addEventListener("click", (e) => {
+      classes = edit.classList;
+      if (classes.contains("show")) {
+        task_input.removeAttribute("readonly");
+        task_input.focus();
+        save.hidden = false;
+        edit.hidden = true;
+        edit.classList.add("show");
+      }
+    });
+
+    remove.addEventListener("click", () => {
+      list.removeChild(listItem);
+    });
+
+    completed.addEventListener("click", () => {
+      list.removeChild(listItem);
+      completedListItem.textContent = task_input.value;
+      completedList.appendChild(completedListItem);
+    });
   });
 });
-
-// completeButton.addEventListener("click", () => {
-//   console.log("working");
-// });
-
-// deleteButton.addEventListener("click", (e) => {
-//   console.log(e);
-// });
