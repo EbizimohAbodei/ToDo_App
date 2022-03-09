@@ -9,9 +9,7 @@ form.addEventListener("submit", (event) => {
   const text = taskInput.value;
 
   if (!text) {
-    window.alert(
-      "Input field cannot be empty \nEnter the description of the task"
-    );
+    window.alert("Input field cannot be empty \nEnter the task description");
     return;
   }
 
