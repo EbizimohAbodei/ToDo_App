@@ -11,6 +11,9 @@ form.addEventListener("submit", (event) => {
   if (!text) {
     window.alert("Input field cannot be empty \nEnter the task description");
     return;
+  } else if (text.length < 2) {
+    window.alert("Input must have more than two characters");
+    return;
   }
 
   const listItem = document.createElement("li");
