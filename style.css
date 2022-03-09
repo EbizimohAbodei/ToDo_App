@@ -68,10 +68,6 @@ ul {
   padding-inline-start: 40px;
 }
 
-.checkbox {
-  margin: 0.5rem;
-}
-
 .list__text {
   height: 3.5rem;
   background-color: rgb(40, 40, 100);
@@ -82,7 +78,7 @@ ul {
   width: 30rem;
 }
 
-.listItem__defHov:hover {
+.listItem__default:hover {
   cursor: default;
 }
 
@@ -149,5 +145,5 @@ li {
 div h2 {
   text-align: center;
   margin: 0.5rem;
-  color: rgb(55, 12, 85);
+  color: snow;
 }

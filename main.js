@@ -45,10 +45,10 @@ form.addEventListener("submit", (event) => {
   save.hidden = true;
 
   listItem.appendChild(task_input);
-  listItem.appendChild(remove);
-  listItem.appendChild(completed);
   listItem.appendChild(edit);
   listItem.appendChild(save);
+  listItem.appendChild(remove);
+  listItem.appendChild(completed);
   list.appendChild(listItem);
 
   taskInput.value = "";
@@ -62,7 +62,7 @@ form.addEventListener("submit", (event) => {
       save.hidden = false;
       edit.hidden = true;
       edit.classList.add("hide");
-      edit.classList.remove("listItem__defHov");
+      edit.classList.remove("listItem__default");
     }
   });
 
