@@ -86,6 +86,11 @@ ul {
   cursor: auto;
 }
 
+button:hover {
+  filter: saturate(0) hue-rotate(90deg) sepia(60%);
+  box-shadow: 0px 0px 10px rgb(46, 41, 41);
+}
+
 .list__Item {
   display: inline-flex;
   background-color: rgb(40, 40, 100);
@@ -135,11 +140,11 @@ li {
 }
 
 .edit__button {
-  background-color: gray;
+  background-color: blue;
 }
 
 .save__show {
-  background-color: dimgray;
+  background-color: rebeccapurple;
 }
 
 div h2 {
