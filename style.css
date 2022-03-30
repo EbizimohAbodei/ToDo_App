@@ -21,6 +21,7 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: auto;
 }
 
 h1 {
@@ -151,4 +152,40 @@ div h2 {
   text-align: center;
   margin: 0.5rem;
   color: snow;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background-color: #4027cd;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+  form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  ::placeholder {
+    font-size: 1.5rem;
+  }
+
+  form button {
+    margin-left: -2.7rem;
+    height: 3rem;
+  }
+
+  .list__text {
+    width: 12rem;
+  }
+
+  li {
+    display: flex;
+    flex-direction: row;
+    margin-left: -2rem;
+  }
 }

@@ -5,9 +5,11 @@ const completedList = document.querySelector(".completed__list");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  let id = Date.now();
 
   const text = taskInput.value;
 
+  // Validating user input
   if (!text) {
     window.alert("Input field cannot be empty \nEnter the task description");
     return;
@@ -54,6 +56,7 @@ form.addEventListener("submit", (event) => {
 
   taskInput.value = "";
 
+  // Handles edit functionality
   edit.addEventListener("click", (e) => {
     classes = edit.classList;
     if (classes.contains("show")) {
@@ -67,6 +70,7 @@ form.addEventListener("submit", (event) => {
     }
   });
 
+  // Handles the save after user is done editing
   save.addEventListener("click", () => {
     classes = edit.classList;
     if (classes.contains("hide")) {
@@ -77,10 +81,12 @@ form.addEventListener("submit", (event) => {
     }
   });
 
+  // Deletes the list item
   remove.addEventListener("click", () => {
     list.removeChild(listItem);
   });
 
+  // Marks the list itme as completed
   completed.addEventListener("click", () => {
     list.removeChild(listItem);
     completedListItem.textContent = task_input.value;
